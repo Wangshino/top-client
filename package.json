@@ -1,12 +1,19 @@
 {
   "name": "top-client",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "description": "a client for taobao open platform.",
-  "main": "lib/index.js",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
   "scripts": {
     "test": "node_modules/.bin/jest dist/test/test.js",
     "build": "tsc",
-    "lint:code": "eslint --fix . --ext .js,.jsx,.ts,.tsx"
+    "lint:code": "eslint --fix . --ext .js,.jsx,.ts,.tsx",
+    "prepare": "npm run build && npm run test",
+    "publish": "npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wangshino/top-client.git"
   },
   "keywords": [
     "top",
@@ -35,6 +42,7 @@
     "md5": "^2.3.0"
   },
   "files": [
-    "lib/**/*"
+    "dist/src/*",
+    "index.js"
   ]
 }
