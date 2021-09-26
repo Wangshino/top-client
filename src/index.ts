@@ -98,10 +98,7 @@ class TaobaoClient {
           timeout: 4e3,
           transformResponse: [
             (data) => {
-              console.log(typeof data);
               data = JSON.parse(data);
-              // console.log('data', data);
-
               if (data.error_response) {
                 return data.error_response;
               }
