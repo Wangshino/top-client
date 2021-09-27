@@ -11,6 +11,9 @@
 ### Default Configurable Options
 
 ```js
+import TaobaoClient from 'top-client'; // ES6 module
+const TaobaoClient = require('top-client').default; // commonjs
+
 const client = new TaobaoClient({
   app_key: 'xxxxxx',
   app_secret: 'xxxxxxxxxxxxxxxxxxxxxxx',
