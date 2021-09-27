@@ -5,11 +5,10 @@
   "main": "./dist/src/index.js",
   "types": "./dist/src/index.d.ts",
   "scripts": {
-    "test": "tsc && node_modules/.bin/jest dist/test/test.js",
+    "test": "jest ./dist/test/test.js",
     "build": "tsc",
-    "lint:code": "eslint --fix . --ext .js,.jsx,.ts,.tsx",
-    "prepare": "npm run build && npm run test",
-    "publish": "npm publish"
+    "lint:code": "eslint --fix src/*.ts test/*.ts",
+    "all": "npm run build && npm run lint:code && npm run test"
   },
   "repository": {
     "type": "git",
