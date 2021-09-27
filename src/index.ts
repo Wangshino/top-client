@@ -4,6 +4,7 @@ import { format } from 'date-fns';
 import axios, { AxiosResponse } from 'axios';
 import * as Stream from 'stream';
 import FormData = require('form-data');
+const JSONbig = require('json-bigint')({ storeAsString: true });
 
 import { sign, getApiResponseName } from './utils';
 
@@ -98,7 +99,7 @@ class TaobaoClient {
           timeout: 4e3,
           transformResponse: [
             (data) => {
-              data = JSON.parse(data);
+              data = JSONbig.parse(data);
               if (data.error_response) {
                 return data.error_response;
               }
@@ -115,7 +116,7 @@ class TaobaoClient {
             timeout: 4e3,
             transformResponse: [
               (data) => {
-                data = JSON.parse(data);
+                data = JSONbig.parse(data);
                 if (data.error_response) {
                   return data.error_response;
                 }
