@@ -4,9 +4,10 @@ import { format } from 'date-fns';
 import axios, { AxiosResponse } from 'axios';
 import * as Stream from 'stream';
 import FormData = require('form-data');
-const JSONbig = require('json-bigint')({ storeAsString: true });
 
 import { sign, getApiResponseName } from './utils';
+
+const JSONbig = require('json-bigint')({ storeAsString: true });
 
 type AppConfig = {
   app_key: string;
@@ -65,9 +66,9 @@ class TaobaoClient {
       }
       // 如果 api 业务参数是普通的 obj 的话，需要转成字符串
       if (
-        typeof apiParam[param] === 'object' &&
-        !Buffer.isBuffer(apiParam[param]) &&
-        !(apiParam[param] instanceof Stream)
+        typeof apiParam[param] === 'object'
+        && !Buffer.isBuffer(apiParam[param])
+        && !(apiParam[param] instanceof Stream)
       ) {
         apiParam[param] = JSON.stringify(apiParam[param]);
       }
@@ -124,7 +125,7 @@ class TaobaoClient {
                 return data[getApiResponseName(method)];
               },
             ],
-          }
+          },
         );
   }
 }

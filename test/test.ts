@@ -10,7 +10,7 @@ describe('Testing taobao top sdk', () => {
   test('Get time', async () => {
     const { data } = await client.invoke('taobao.time.get', {});
     delete data.request_id;
-    let deltaTime = new Date().valueOf() - new Date(data.time).valueOf();
+    const deltaTime = new Date().valueOf() - new Date(data.time).valueOf();
     expect(deltaTime).toBeGreaterThanOrEqual(0);
   });
 
