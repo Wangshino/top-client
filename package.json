@@ -1,11 +1,11 @@
 {
   "name": "top-client",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "a client for taobao open platform.",
   "main": "./dist/src/index.js",
   "types": "./dist/src/index.d.ts",
   "scripts": {
-    "test": "node_modules/.bin/jest dist/test/test.js",
+    "test": "tsc && node_modules/.bin/jest dist/test/test.js",
     "build": "tsc",
     "lint:code": "eslint --fix . --ext .js,.jsx,.ts,.tsx",
     "prepare": "npm run build && npm run test",
@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "axios": "^0.21.4",
-    "axios-debug-log": "^0.8.4",
     "date-fns": "^2.23.0",
     "form-data": "^4.0.0",
     "json-bigint": "^1.0.0",
